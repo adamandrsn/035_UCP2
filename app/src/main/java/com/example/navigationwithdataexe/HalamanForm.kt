@@ -31,6 +31,7 @@ fun DosenDetailScreen(
     onCancelButtonClicked: () -> Unit,
     dosenPembimbing: List<String>,
     onSelectionChanged: (String) -> Unit,
+    onSelectionChanged2: (String) -> Unit,
     onNextButtonClicked: () -> Unit,
 ) {
     var namamhs by rememberSaveable { mutableStateOf("") }
@@ -99,7 +100,7 @@ fun DosenDetailScreen(
                     Text(item)
                     RadioButton(selected = dosenYgDipilih == item, onClick = {
                         dosenYgDipilih = item
-                        onSelectionChanged(item)
+                        onSelectionChanged2(item)
                     })
                     Text(item)
                 }

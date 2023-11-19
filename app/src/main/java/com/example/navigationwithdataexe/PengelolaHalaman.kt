@@ -1,4 +1,4 @@
-package com.example.ucp2
+package com.example.navigationwithdataexe
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -13,17 +13,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.navigationwithdataexe.DosenDetailScreen
-import com.example.navigationwithdataexe.HalamanHome
-import com.example.navigationwithdataexe.HalamanSummary
 import com.example.navigationwithdataexe.data.SumberData
-import com.example.navigationwithdataexe.data.UIState
+import com.example.ucp2.FormViewModel
 
 enum class PengelolaHalaman {
     Home,
     Formulir,
     Summary,
-    Detail
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,10 +43,21 @@ fun FormulirApp(
                 )
             }
             composable(route = PengelolaHalaman.Formulir.name){
-
+                val context = LocalContext.current
+                HalamanForm(
+                    onConfirmButtonClicked = {viewModel.setData(it)
+                                             navController.navigate(PengelolaHalaman.Summary.name)},
+                    dosenPembimbing = SumberData.namadosen1.map { id -> context.resources.getString(id)},
+                    dosenPembimbing2 = SumberData.namadosen1.map { id -> context.resources.getString(id)},
+                    onSelectionChanged = {viewModel.setDosenPem1(it)},
+                    onSelectionChanged2 = {viewModel.setDosenPem2(it)},
+                    onCancelButtonClicked = { navController.popBackStack(
+                        PengelolaHalaman.Home.name,inclusive = false) }
+                )
             }
             composable(route = PengelolaHalaman.Summary.name) {
-
+                HalamanSummary(uiState = uiState, onCancelButtonClicked = { navController.popBackStack(
+                    PengelolaHalaman.Formulir.name,inclusive = false) } )
             }
             }
         }

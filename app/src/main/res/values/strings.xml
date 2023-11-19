@@ -7,5 +7,7 @@
     <string name="dosen1">Haris Setiawan</string>
     <string name="dosen2">Dwi Djoko P</string>
     <string name="dosen3">Aprilia Kurnianti</string>
+    <string name="dospem_1">Dosen Pembimbing 1</string>
+    <string name="dospem_2">Dosen Pembimbing 2</string>
     <string name="data_summary">Ringkasan Formulir</string>
 </resources>

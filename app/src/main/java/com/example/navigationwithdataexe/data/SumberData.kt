@@ -1,14 +1,11 @@
 package com.example.navigationwithdataexe.data
 
+import com.example.navigationwithdataexe.R
+
 object SumberData {
     val namadosen1 = listOf(
-        "Haris Setiawan",
-        "Dwi Djoko P",
-        "Aprilia Kurnianti",
-    )
-    val namadosen2 = listOf(
-        "Haris Setiawan",
-        "Dwi Djoko P",
-        "Aprilia Kurnianti",
+        R.string.dosen1,
+        R.string.dosen2,
+        R.string.dosen3
     )
 }
